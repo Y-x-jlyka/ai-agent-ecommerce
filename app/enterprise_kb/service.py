@@ -1,0 +1,1 @@
+from app.rag_core import EnterpriseKnowledgeBaseService, enterprise_kb_service
