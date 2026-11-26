@@ -1,0 +1,1 @@
+企业知识库资料：RAG 链路包括文档解析、Chunk、Embedding、Vector Store、高级 Retrieval、Grounded Answer 和 Evaluation。

@@ -1,0 +1,38 @@
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage
+from app.core.config import settings
+
+def create_deepseek_chat_model():
+    if not settings.deepseek_api_key:
+        raise RuntimeError("请先在 .env 中配置 DEEPSEEK_API_KEY")
+
+    return ChatOpenAI(
+        model="deepseek-chat",
+        api_key=settings.deepseek_api_key,
+        base_url=settings.deepseek_base_url,
+        temperature=0.7,
+    )
+
+def run_basic_chat():
+    model = create_deepseek_chat_model()
+
+    response = model.invoke("请用一句话解释什么是 LangChain。")
+
+    print("response type:", type(response))
+    print("content:")
+    print(response.content)
+
+def run_chat_with_messages():
+    model = create_deepseek_chat_model()
+
+    messages = [
+        SystemMessage(content="你是一个专业 AI Agent 课程助教。"),
+        HumanMessage(content="LangChain 和直接调用大模型 API 有什么区别？"),
+    ]
+
+    response = model.invoke(messages)
+
+    print(response.content)
+
+if __name__ == "__main__":
+    run_chat_with_messages()

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# 环境变量（含 API Key，绝不入库）
+.env
+
+# 运行时产物（可重建）
+data/chroma_langchain_rag/
+logs/
+*.log
+
+# 系统文件
+*.swp
+
+# 独立 git 仓库（mini RAG 练习），不并入主仓库
+mini-rag-demo/
+.idea_bak*/
+.idea_*/
